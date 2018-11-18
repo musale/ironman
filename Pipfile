@@ -19,6 +19,7 @@ whitenoise = "*"
 python-decouple = "*"
 requests = "*"
 pytest-django = "*"
+social-auth-app-django = "*"
 
 [requires]
 python_version = "3.6"

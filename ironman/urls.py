@@ -5,5 +5,6 @@ from django.conf.urls import url, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^', include('ironman.core.urls'))
+    path('accounts/', include('django.contrib.auth.urls')),
+    url(r'', include('ironman.core.urls'))
 ]
