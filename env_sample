@@ -1,0 +1,10 @@
+POSTGRES_PASSWORD=postgres
+POSTGRES_USER=postgres
+DATABASE_URL=postgres://postgres:postgres@db:5432/postgres
+LOG_FILE=/var/log/ironman/ironman.log
+DEBUG=True
+EMAIL_HOST_USER=someemail@gmail.com
+EMAIL_HOST_PASSWORD=somepassword
+EMAIL_HOST=smtp.gmail.com
+EMAIL_USE_TLS=True
+EMAIL_PORT=527

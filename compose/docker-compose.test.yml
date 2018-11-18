@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx:1.13
+    ports:
+      - 80:80
+    depends_on:
+      - ironman
+    volumes:
+      - $BITBUCKET_CLONE_DIR/apps/ironman:/apps/ironman
+      - ../config/nginx/dev:/etc/nginx/conf.d
+
+  ironman:
+    image: musale/ironman:1.1.5
+    depends_on:
+      - db
+    volumes:
+      - $BITBUCKET_CLONE_DIR/apps/logs/ironman:/var/log/ironman
+      - $BITBUCKET_CLONE_DIR/apps/ironman:/apps/ironman
+      - ../:/usr/src/app
+    environment:
+      - 'DATABASE_URL=postgres://postgres:postgres@db:5432/postgres'
+      - LOG_FILE=$BITBUCKET_CLONE_DIR/ironman.log
+      - DEBUG=1
+
+  db:
+    restart: always
+    image: postgres:10.0
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres

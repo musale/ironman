@@ -1,0 +1,37 @@
+version: "3"
+
+services:
+  nginx:
+    container_name: nginx
+    image: nginx:1.13
+    ports:
+      - 80:80
+    depends_on:
+      - ironman
+    volumes:
+      - ~/apps/ironman:/apps/ironman
+      - ../config/nginx/dev:/etc/nginx/conf.d
+
+  ironman:
+    container_name: ironman
+    build:
+      context: ../
+    depends_on:
+      - db
+    volumes:
+      - ~/apps/logs/ironman:/var/log/ironman
+      - ~/apps/ironman:/apps/ironman
+      - ../:/usr/src/app
+    env_file: ../.env
+
+  db:
+    container_name: ironmandb
+    restart: always
+    image: postgres:10.0
+    volumes:
+      - ironman_db:/var/lib/postgresql/data
+    env_file: ../.env
+
+volumes:
+  ironman_db:
+    driver: "local"

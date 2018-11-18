@@ -1,0 +1,4 @@
+{
+    "python.pythonPath": "/Users/mus/.local/share/virtualenvs/ironman-DT1_u4YZ/bin/python",
+    "python.linting.pylintArgs": ["--load-plugins=pylint_django"]
+}

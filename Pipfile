@@ -1,0 +1,24 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[dev-packages]
+pylint = "*"
+"autopep8" = "*"
+pylint-django = "*"
+
+[packages]
+django = "*"
+"psycopg2-binary" = "*"
+pytz = "*"
+gunicorn = "*"
+pillow = "*"
+dj-database-url = "*"
+whitenoise = "*"
+python-decouple = "*"
+requests = "*"
+pytest-django = "*"
+
+[requires]
+python_version = "3.6"
