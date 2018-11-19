@@ -11,6 +11,12 @@ class UserSignup(UserCreationForm):
             'class': 'form-control',
             'placeholder': 'Enter your username'
         }))
+    email = forms.EmailField(
+        widget=forms.EmailInput(
+            attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter your email'
+            }))
     password1 = forms.CharField(widget=forms.PasswordInput(
         attrs={
             'class': 'form-control',

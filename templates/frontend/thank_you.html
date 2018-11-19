@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Thank you!{% endblock %}
+
+{% block content %}
+<div class="jumbotron jumbotron-fluid">
+    <h1 class="display-4 text-center">Thank you!</h1>
+    {% if messages %}
+    {% for message in messages %}
+    <p class="lead text-center">{{message}}</p>
+    {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}
